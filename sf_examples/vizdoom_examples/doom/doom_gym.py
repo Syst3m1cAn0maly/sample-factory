@@ -458,7 +458,7 @@ class VizdoomEnv(gym.Env):
 
             h, w = img.shape[:2]
             render_h, render_w = h, w
-            max_w = 1280
+            max_w = 320
 
             if w < max_w:
                 render_w = max_w
@@ -472,8 +472,7 @@ class VizdoomEnv(gym.Env):
                 pygame.display.init()
                 self.screen = pygame.display.set_mode((render_w, render_h))
 
-            self.surf = pygame.surfarray.make_surface(np.rot90(img))
-            self.screen.blit(self.surf, (0, 0))
+            pygame.surfarray.blit_array(self.screen, img.swapaxes(0, 1))
             pygame.display.update()
             # pygame.display.flip()
 
