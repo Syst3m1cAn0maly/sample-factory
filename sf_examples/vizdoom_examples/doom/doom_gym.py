@@ -458,7 +458,7 @@ class VizdoomEnv(gym.Env):
 
             h, w = img.shape[:2]
             render_h, render_w = h, w
-            max_w = 320
+            max_w = 640
 
             if w < max_w:
                 render_w = max_w
